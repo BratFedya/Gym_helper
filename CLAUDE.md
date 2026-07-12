@@ -19,7 +19,8 @@ Personal iOS exercise tracker. No backend, no dependencies, no build step.
 | `ui.js` | Shared UI primitives & formatters: `escHtml`, dates, `GROUP_ICONS`, `categoryLabel`, icon/pill builders, `buildWeightChart`, tab bar, `showConfirm`, `showSavePopup` |
 | `views.js` | All `render*` screen functions |
 | `app.js` | Router (`getRoute`/`navigate`) + `render()` dispatcher + entry listeners |
-| `manifest.json` | PWA manifest (used when served over HTTPS, not needed for Xcode) |
+| `web/manifest.json` | PWA manifest — must sit **next to `index.html`** (it is linked relatively); powers Add-to-Home-Screen standalone mode. Ignored by the Xcode/WKWebView build |
+| `index.html` (repo root) | Redirect to `web/` — exists only so the GitHub Pages URL stays short. Not part of the app |
 | `ContentView.swift` | Xcode WKWebView wrapper — copy into Xcode project to build native iOS app |
 
 **JS module structure:** The five JS files are **classic `<script>` tags** (not ES modules — WKWebView blocks module fetch on `file://` origins), sharing one global scope. `index.html` loads them in dependency order: **`i18n.js` → `store.js` → `ui.js` → `views.js` → `app.js`**. There are no top-level cross-file calls (only definitions, the two `window.addEventListener(..., render)` at the end of `app.js`, and the `window.__importFromNative` assignment in `store.js`), so everything resolves once all files are loaded and `DOMContentLoaded` fires. When adding code, put it in the file matching its layer and keep the load order intact.
@@ -202,6 +203,16 @@ No special Xcode capability or entitlement is required (works on a free personal
 Safe area insets: `env(safe-area-inset-top/bottom)` used in `.page` padding and `.tab-bar` height.
 
 Double-tap zoom is disabled via `user-scalable=no` in the viewport meta tag and `touch-action: manipulation` on the universal CSS selector.
+
+## Deployment (GitHub Pages)
+
+The app is served at **https://bratfedya.github.io/Gym_helper/**.
+
+- Pages is configured as a **branch deploy** (`main`, folder `/`) — no Actions workflow, no build step. **Every push to `main` redeploys automatically.**
+- Pages can only serve from the repo root or `/docs`, but the app lives in `web/`. A tiny `index.html` at the repo root redirects to `web/` so the public URL stays short.
+- `web/manifest.json` gives standalone mode when added to the iPhone home screen. It is linked relatively from `web/index.html`, so **it must stay in `web/`** — moving it to the root silently 404s and breaks Add-to-Home-Screen.
+- The native bridge (`webkit.messageHandlers`) does not exist in a browser, so "Export/Import to a File" degrade to an inline hint. Clipboard copy and JSON paste still work.
+- **Each origin has its own `localStorage`** (`file://` in the app, `https://…github.io` on Pages) — the two installs never share data. Export/Import JSON is the only bridge.
 
 ## Xcode setup
 
