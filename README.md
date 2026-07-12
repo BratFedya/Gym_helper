@@ -6,23 +6,13 @@
 
 ## Скриншоты
 
-<p align="center">
-  <img src="screenshots/list.png"     width="230" alt="Список упражнений" />
-  <img src="screenshots/generate.png" width="230" alt="Генерация тренировки" />
-  <img src="screenshots/active.png"   width="230" alt="Активная тренировка" />
-</p>
-<p align="center">
-  <em>Библиотека упражнений&nbsp;&nbsp;·&nbsp;&nbsp;Генератор по группам мышц&nbsp;&nbsp;·&nbsp;&nbsp;Активная тренировка</em>
-</p>
+| <img src="screenshots/list.png" width="230" alt="Список упражнений" /> | <img src="screenshots/generate.png" width="230" alt="Генерация тренировки" /> | <img src="screenshots/active.png" width="230" alt="Активная тренировка" /> |
+|:---:|:---:|:---:|
+| **Библиотека упражнений** | **Генератор по группам мышц** | **Активная тренировка** |
 
-<p align="center">
-  <img src="screenshots/workouts.png" width="230" alt="Список тренировок" />
-  <img src="screenshots/chart.png"   width="230" alt="График веса" />
-  <img src="screenshots/settings.png" width="230" alt="Настройки" />
-</p>
-<p align="center">
-  <em>Итог с дельтой веса&nbsp;&nbsp;·&nbsp;&nbsp;История веса&nbsp;&nbsp;·&nbsp;&nbsp;Язык и бэкапы</em>
-</p>
+| <img src="screenshots/workouts.png" width="230" alt="История тренировок" /> | <img src="screenshots/chart.png" width="230" alt="График веса" /> | <img src="screenshots/settings.png" width="230" alt="Язык и бэкапы" /> |
+|:---:|:---:|:---:|
+| **История тренировок** | **История веса** | **Язык и бэкапы** |
 
 ---
 
