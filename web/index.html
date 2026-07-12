@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Gym Helper</title>
+
+  <!-- iOS PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Gym Helper" />
+
+  <!-- Android / browser PWA -->
+  <meta name="theme-color" content="#FF6B00" />
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app"></div>
+  <div id="tabbar-root"></div>
+  <!-- Classic scripts (NOT ES modules — WKWebView blocks module fetch on file://).
+       Load order matters: i18n → store → ui → views → app. -->
+  <script src="i18n.js"></script>
+  <script src="store.js"></script>
+  <script src="ui.js"></script>
+  <script src="views.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
