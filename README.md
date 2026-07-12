@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshots/workout.png" width="230" alt="Итог тренировки" />
+  <img src="screenshots/workouts.png" width="230" alt="Список тренировок" />
   <img src="screenshots/chart.png"   width="230" alt="График веса" />
   <img src="screenshots/settings.png" width="230" alt="Настройки" />
 </p>
